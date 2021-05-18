@@ -6,7 +6,7 @@ import entity.Producto;
 import entity.Tienda;
 
 /**
- * Esta clase prueba los mÈtodos p˙blicos de Servicios
+ * Esta clase prueba los m√©todos p√∫blicos de Servicios
  * 
  * @author Mario
  *
@@ -17,7 +17,7 @@ public class ServicioTest {
 
 	/**
 	 * Este test vigila que el double[] salida de margenBeneficio tenga el mismo
-	 * length que el n˙mero de Producto contenido en un objeto Tienda
+	 * length que el n√∫mero de Producto contenido en un objeto Tienda
 	 */
 	@Test
 	public void margenBeneficioSalidaOk() {
@@ -70,7 +70,7 @@ public class ServicioTest {
 
 	/**
 	 * Este test vigila que el try-catch funciona correctamente y que se obtiene la
-	 * salida esperada al encontrarse con un par·metro introducido null
+	 * salida esperada al encontrarse con un par√°metro introducido null
 	 */
 	@Test
 	public void margenBeneficioIfNull() {
@@ -84,39 +84,29 @@ public class ServicioTest {
 	 */
 	@Test
 	public void mayorMargenBeneficioCalculoOk() {
-		Producto prodTest1 = new Producto(4, 1);
-		Producto prodTest2 = new Producto(4, 3);
-		Producto prodTest3 = new Producto(4, 2);
-		Producto[] productos = { prodTest1, prodTest2, prodTest3 };
-		tiendaTest.setProductos(productos);
 		double[] beneficios = { 75.0, 25.0, 50.0 };
 		tiendaTest.setMargenBeneficio(beneficios);
 		Assertions.assertEquals(75.0, servtest.mayorMargenBeneficio(tiendaTest));
 	}
 
 	/**
-	 * Este test comprueba que el mÈtodo no da errores en caso de encontrarse con
+	 * Este test comprueba que el m√©todo no da errores en caso de encontrarse con
 	 * dos beneficios iguales, siendo ambos los mayores del array
 	 */
 	@Test
 	public void mayorMargenBeneficioEmpate() {
-		Producto prodTest1 = new Producto(4, 1);
-		Producto prodTest2 = new Producto(4, 3);
-		Producto prodTest3 = new Producto(4, 1);
-		Producto[] productos = { prodTest1, prodTest2, prodTest3 };
-		tiendaTest.setProductos(productos);
 		double[] beneficios = { 75.0, 25.0, 75.0 };
 		tiendaTest.setMargenBeneficio(beneficios);
 		Assertions.assertEquals(75.0, servtest.mayorMargenBeneficio(tiendaTest));
 	}
 
 	/**
-	 * Este test vigila que el mÈtodo funciona correctamente en caso de obtener por
-	 * par·metro un objeto null
+	 * Este test vigila que el m√©todo funciona correctamente en caso de obtener por
+	 * par√°metro un objeto null
 	 */
 	@Test
 	public void mayorMargenBeneficioIfNull() {
-		// el mÈtodo devolverÌa 0 al no encontrar otros valores con los que comparar y
+		// el m√©todo devolver√≠a 0 al no encontrar otros valores con los que comparar y
 		// modificar el mayorMargenBeneficioAux
 		Assertions.assertEquals(0.0, servtest.mayorMargenBeneficio(tiendaTest));
 	}
@@ -128,39 +118,29 @@ public class ServicioTest {
 	 */
 	@Test
 	public void menorMargenBeneficioCalculoOk() {
-		Producto prodTest1 = new Producto(4, 1);
-		Producto prodTest2 = new Producto(4, 3);
-		Producto prodTest3 = new Producto(4, 2);
-		Producto[] productos = { prodTest1, prodTest2, prodTest3 };
-		tiendaTest.setProductos(productos);
 		double[] beneficios = { 75.0, 25.0, 50.0 };
 		tiendaTest.setMargenBeneficio(beneficios);
 		Assertions.assertEquals(25.0, servtest.menorMargenBeneficio(tiendaTest));
 	}
 
 	/**
-	 * Este test comprueba que el mÈtodo no da errores en caso de encontrarse con
+	 * Este test comprueba que el m√©todo no da errores en caso de encontrarse con
 	 * dos beneficios iguales, siendo ambos los menores del array
 	 */
 	@Test
 	public void menorMargenBeneficioEmpate() {
-		Producto prodTest1 = new Producto(4, 3);
-		Producto prodTest2 = new Producto(4, 3);
-		Producto prodTest3 = new Producto(4, 1);
-		Producto[] productos = { prodTest1, prodTest2, prodTest3 };
-		tiendaTest.setProductos(productos);
 		double[] beneficios = { 25.0, 25.0, 75.0 };
 		tiendaTest.setMargenBeneficio(beneficios);
 		Assertions.assertEquals(25.0, servtest.menorMargenBeneficio(tiendaTest));
 	}
 
 	/**
-	 * Este test vigila que el mÈtodo funciona correctamente en caso de obtener por
-	 * par·metro un objeto null
+	 * Este test vigila que el m√©todo funciona correctamente en caso de obtener por
+	 * par√°metro un objeto null
 	 */
 	@Test
 	public void menorMargenBeneficioIfNull() {
-		// el mÈtodo devolverÌa 0 al no encontrar otros valores con los que comparar y
+		// el m√©todo devolver√≠a 0 al no encontrar otros valores con los que comparar y
 		// modificar el menorMargenBeneficioAux
 		Assertions.assertEquals(0.0, servtest.menorMargenBeneficio(tiendaTest));
 	}
@@ -172,13 +152,14 @@ public class ServicioTest {
 	 */
 	@Test
 	public void obtenerIdMargenOk() {
-		Producto prodTest1 = new Producto(100, 50);
-		Producto prodTest2 = new Producto(100, 60);
-		Producto prodTest3 = new Producto(90, 70);
+		Producto prodTest1 = new Producto();
+		Producto prodTest2 = new Producto();
+		Producto prodTest3 = new Producto();
 		Producto[] productos = { prodTest1, prodTest2, prodTest3 };
 		tiendaTest.setProductos(productos);
-		servtest.margenBeneficio(tiendaTest);
-		Assertions.assertEquals(1, servtest.obtenerIdMargen(tiendaTest, 50.0));
+		double[] beneficios = { 50.0, 25.0, 75.0 };
+		tiendaTest.setMargenBeneficio(beneficios);
+		Assertions.assertEquals(2, servtest.obtenerIdMargen(tiendaTest, 25.0));
 	}
 
 	/**
@@ -188,34 +169,35 @@ public class ServicioTest {
 	 */
 	@Test
 	public void obtenerIdMargenNoEncontrado() {
-		Producto prodTest1 = new Producto(100, 50);
-		Producto prodTest2 = new Producto(100, 60);
-		Producto prodTest3 = new Producto(90, 70);
+		Producto prodTest1 = new Producto();
+		Producto prodTest2 = new Producto();
+		Producto prodTest3 = new Producto();
 		Producto[] productos = { prodTest1, prodTest2, prodTest3 };
 		tiendaTest.setProductos(productos);
-		servtest.margenBeneficio(tiendaTest);
-		// Utilizo 1,7 como un valor cualquiera que no est· en el margenBeneficio[]
+		double[] beneficios = { 50.0, 25.0, 75.0 };
+		tiendaTest.setMargenBeneficio(beneficios);
+		// Utilizo 1,7 como un valor cualquiera que no est√° en el margenBeneficio[]
 		Assertions.assertEquals(0, servtest.obtenerIdMargen(tiendaTest, 1.7));
 	}
 
 	/**
-	 * Este test vigila que el mÈtodo funciona correctamente en caso de obtener por
-	 * par·metro un objeto null
+	 * Este test vigila que el m√©todo funciona correctamente en caso de obtener por
+	 * par√°metro un objeto null
 	 */
 	@Test
 	public void obtenerIdMargenIfNull() {
 		// Utilizo 1,7 como un valor cualquiera
-		// El mÈtodo devuelve el valor por defecto 0 si no encuentra el valor. Al
-		// introducir un objeto vacÌo, no se realiza la comparaciÛn y devuelve
-		// autom·ticamente 0
+		// El m√©todo devuelve el valor por defecto 0 si no encuentra el valor. Al
+		// introducir un objeto vac√≠o, no se realiza la comparaci√≥n y devuelve
+		// autom√°ticamente 0
 		Assertions.assertEquals(0, servtest.obtenerIdMargen(tiendaTest, 1.7));
 	}
 
 	/**
 	 * Este test vigila que el funcionamiento de nuevoPrecio sea correcto,
 	 * introduciendo unos datos de testeo. Se testea con el Producto 3, que tiene
-	 * menos de un 10% de margen de beneficio, esperando que el mÈtodo devuelva un
-	 * valor distinto de 0 en su posiciÛn
+	 * menos de un 10% de margen de beneficio, esperando que el m√©todo devuelva un
+	 * valor distinto de 0 en su posici√≥n
 	 */
 	@Test
 	public void nuevoPrecioModificaOk() {
@@ -223,14 +205,15 @@ public class ServicioTest {
 		Producto prodTest2 = new Producto(10, 10);
 		Producto[] productos = { prodTest1, prodTest2 };
 		tiendaTest.setProductos(productos);
-		servtest.margenBeneficio(tiendaTest);
-		// prodTest2 tenÌa un margen de 0, por lo que el mÈtodo
+		double[] beneficios = { 50.0, 0.0 };
+		tiendaTest.setMargenBeneficio(beneficios);
+		// prodTest2 ten√≠a un margen de 0, por lo que el m√©todo
 		// nuevoPrecioMargenMenorDiez() modifica su valor
 		Assertions.assertNotEquals(0.0, servtest.nuevoPrecioMargenMenorDiez(tiendaTest)[1]);
 	}
 
 	/**
-	 * Este test comprueba si el comportamiento del mÈtodo es el adecuado en el caso
+	 * Este test comprueba si el comportamiento del m√©todo es el adecuado en el caso
 	 * de encontrarse un producto de beneficio 0
 	 */
 	@Test
@@ -238,12 +221,13 @@ public class ServicioTest {
 		Producto prodTest1 = new Producto(1, 1);
 		Producto[] productos = { prodTest1 };
 		tiendaTest.setProductos(productos);
-		servtest.margenBeneficio(tiendaTest);
+		double[] beneficios = { 0.0 };
+		tiendaTest.setMargenBeneficio(beneficios);
 		Assertions.assertEquals(1.11, servtest.nuevoPrecioMargenMenorDiez(tiendaTest)[0]);
 	}
 
 	/**
-	 * Este test comprueba si el comportamiento del mÈtodo es el adecuado en el caso
+	 * Este test comprueba si el comportamiento del m√©todo es el adecuado en el caso
 	 * de encontrarse un producto de beneficio menor que 0
 	 */
 	@Test
@@ -251,13 +235,14 @@ public class ServicioTest {
 		Producto prodTest1 = new Producto(1, 2);
 		Producto[] productos = { prodTest1 };
 		tiendaTest.setProductos(productos);
-		servtest.margenBeneficio(tiendaTest);
+		double[] beneficios = { -100.0 };
+		tiendaTest.setMargenBeneficio(beneficios);
 		Assertions.assertEquals(2.22, servtest.nuevoPrecioMargenMenorDiez(tiendaTest)[0]);
 	}
 
 	/**
 	 * Este test vigila que el try-catch funciona correctamente y que se obtiene la
-	 * salida esperada al encontrarse con un par·metro introducido null
+	 * salida esperada al encontrarse con un par√°metro introducido null
 	 */
 	@Test
 	public void nuevoPrecioIfNull() {
@@ -280,8 +265,8 @@ public class ServicioTest {
 	}
 	
 	/**
-	 * Este test vigila que el mÈtodo funciona correctamente y que se obtiene la
-	 * salida esperada al encontrarse con un par·metro introducido null
+	 * Este test vigila que el m√©todo funciona correctamente y que se obtiene la
+	 * salida esperada al encontrarse con un par√°metro introducido null
 	 */
 	@Test
 	public void beneficioTotalIfNull() {
@@ -290,7 +275,7 @@ public class ServicioTest {
 
 	/**
 	 * Este test vigila que el double[] salida de crearArrayPrecios tenga el mismo
-	 * length que el n˙mero de Producto contenido en un objeto Tienda
+	 * length que el n√∫mero de Producto contenido en un objeto Tienda
 	 */
 	@Test
 	public void crearArrayPreciosOk() {
@@ -304,7 +289,7 @@ public class ServicioTest {
 
 	/**
 	 * Este test vigila que el try-catch funciona correctamente y que se obtiene la
-	 * salida esperada al encontrarse con un par·metro introducido null
+	 * salida esperada al encontrarse con un par√°metro introducido null
 	 */
 	@Test
 	public void crearArrayPreciosIfNull() {
@@ -313,7 +298,7 @@ public class ServicioTest {
 
 	/**
 	 * Este test vigila que el double[] salida de crearArrayCostes tenga el mismo
-	 * length que el n˙mero de Producto contenido en un objeto Tienda
+	 * length que el n√∫mero de Producto contenido en un objeto Tienda
 	 */
 	@Test
 	public void crearArrayCostesOk() {
@@ -327,7 +312,7 @@ public class ServicioTest {
 
 	/**
 	 * Este test vigila que el try-catch funciona correctamente y que se obtiene la
-	 * salida esperada al encontrarse con un par·metro introducido null
+	 * salida esperada al encontrarse con un par√°metro introducido null
 	 */
 	@Test
 	public void crearArrayCostesIfNull() {
