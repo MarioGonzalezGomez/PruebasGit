@@ -1,3 +1,2 @@
 # PruebasGit
-Segundo try
-aqui intentando ver cómo funciona esto que no tengo ni idea
+Repositorio de pruebas para almacenar ejercicios sin terminar
